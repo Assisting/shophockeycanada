@@ -62,7 +62,12 @@
         <script>
             $(document).ready(function () {
                 window.setTimeout(function () {
-                    location.href = "https://shop.hockeycanada.ca/";
+                    if ((String(window.performance.getEntriesByType('navigation')[0].type) != 'back_forward')) {
+                        //These lines required for testing in Chrome
+                        //var url = new URL(window.location);
+                        //window.history.pushState({}, 'shophockeycanada.ca', url);
+                        window.location.href = 'https://shop.hockeycanada.ca/';
+                    }
                 }, 5000);
             });
         </script>
